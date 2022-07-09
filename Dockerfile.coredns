@@ -1,0 +1,13 @@
+FROM ubuntu:20.04
+
+RUN apt-get update
+RUN apt-get install net-tools dnsutils bash make curl nano dnsmasq wget -y
+
+WORKDIR /app
+RUN wget https://github.com/coredns/coredns/releases/download/v1.9.3/coredns_1.9.3_linux_amd64.tgz
+RUN tar -xzf coredns_1.9.3_linux_amd64.tgz
+RUN mv coredns /usr/local/bin
+RUN rm coredns_1.9.3_linux_amd64.tgz
+COPY coredns/Corefile .
+
+CMD ["coredns"]

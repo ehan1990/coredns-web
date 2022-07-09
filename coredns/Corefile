@@ -1,0 +1,8 @@
+foobar.com. {
+  bind 0.0.0.0
+  log
+  reload 5s
+  file /shared/zones/foobar.com foobar.com {
+    reload 5s
+  }
+}

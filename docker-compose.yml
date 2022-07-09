@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+  coredns:
+    build:
+      context: .
+      dockerfile: Dockerfile.coredns
+    container_name: coredns
+    image: ubuntu:focal
+    restart: unless-stopped
+    volumes:
+      - ./shared:/shared
+    
