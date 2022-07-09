@@ -9,7 +9,7 @@ coredns-ssh:
 	docker exec -it coredns bash
 
 db-up:
-	docker run --name db -p 27017:27017 -d mongo mongod
+	docker run --name db -p 27017:27017 -v persistence:/data/db -d mongo mongod
 
 db-ssh:
 	docker exec -it db bash
